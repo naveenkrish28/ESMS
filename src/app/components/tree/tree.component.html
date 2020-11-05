@@ -1,0 +1,120 @@
+<div style="width: 15%; padding-top: 5px;border: solid grey 2px;padding-bottom: 5px;
+  position: relative;top: 4vh;left: 5px;background-color: #80bcfd;">
+  <div style="padding-left: 2px;">
+    <b>{{process}}</b>
+    <mat-icon style="cursor: pointer;position:relative; left:25px;vertical-align: middle;"
+      (click)="createStage()">
+      add_box
+    </mat-icon>
+  </div>
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree"
+    style="background-color: #80bcfd;">
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node;" matTreeNodeToggle>
+      <li class="mat-tree-node">
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        <span (click)="loadPages(node.index, node.name)">{{node.name}}</span>
+        <mat-icon style="cursor: pointer;position: absolute;; left:145px;"
+          (click)="setName(node.name,node.index)">edit</mat-icon>
+      </li>
+    </mat-tree-node>
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild;">
+      <li>
+        <div class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          <span><b>{{node.name}}</b></span>
+          <mat-icon style="cursor: pointer;position: absolute;; left:115px"
+            (click)="setName(node.name,node.index)">edit</mat-icon>
+          <mat-icon style="cursor: pointer;position: absolute;; left:145px"
+            (click)="createPage(node.index , node.c.length)">
+            add_box
+          </mat-icon>
+        </div>
+        <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+          <ng-container matTreeNodeOutlet></ng-container>
+        </ul>
+      </li>
+    </mat-nested-tree-node>
+  </mat-tree>
+</div>
+
+<!-- Render View Page -->
+
+
+<div style="position: absolute;right:3px;width: 80%;top: 10px;border: grey 2px solid;min-height: 85vh;">
+  <div class="row " *ngIf="isEnable">
+    <header class="page-header">
+      <h3>{{pageTitle}}</h3>
+    </header>
+  </div>
+
+
+
+  <div class="formdiv dynamiccontent row" *ngIf="isEnable">
+
+    <form [formGroup]="dynamicForm">
+
+      <div ngClass=" row sectionDiv{{ sect_elem.sectiontype}}"
+        *ngFor="let sect_elem of pagedata | orderBy :'order';">
+
+        <div class="section-header">
+          <h4>{{sect_elem.sectiontitle}}</h4>
+        </div>
+
+        <div *ngFor="let form_elem of sect_elem.sectioncontent | orderBy:'orderid' ">
+        
+          <div [ngSwitch]="form_elem.ftype">
+
+            <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'textbox'">
+              <label>{{form_elem.flabel}} : </label>
+              <input type="text" [formControlName]="form_elem.fname" />
+            </div>
+
+            <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'dropdown'">
+              <label for="staticEmail">{{form_elem.flabel}} : </label>
+              <select [multiple]="form_elem.multiple" [formControlName]="form_elem.fname">
+                <option *ngFor="let opt of cs.commonarary[form_elem.dropdownoptions]" [value]="opt"> {{opt}}</option>
+              </select>
+            </div>
+
+            <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'radio'">
+              <label for="staticEmail">{{form_elem.flabel}} : </label>
+              <span *ngFor="let radioopt of cs.commonarary[form_elem.dropdownoptions]">
+                <input type="radio" class="orm-check-input" [value]="radioopt"
+                  [formControlName]="form_elem.fname">
+                <span class="radiolbl">{{radioopt}}</span>
+              </span>
+
+            </div>
+
+            <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'checkbox'">
+              <label for="staticEmail" class="col-sm col-form-label">{{form_elem.flabel}} : </label>
+              <span *ngFor="let radioopt of cs.commonarary[form_elem.dropdownoptions]">
+                <input type="checkbox" [value]="radioopt" [formControlName]="form_elem.fname">
+                <span class="radiolbl">{{radioopt}}</span>
+              </span>
+            </div>
+
+            <div class="btn formcontroldiv " *ngSwitchCase="'button'  ">
+              <div></div>
+              <input type="submit" (click)="this[form_elem.action]()" class="btn-primary"
+                id="{{form_elem.fname}}" value="{{form_elem.flabel}}" />
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+  <button style="position: relative;left: 35vw;;top: 10px;width: 100px;margin: auto;
+                background-color: rgb(74, 77, 247);color:white" mat-raised-button *ngIf="currPageName"
+                (click)="editPage()">Edit {{currPageName}}</button>
+</div>

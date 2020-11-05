@@ -1,0 +1,216 @@
+{
+  "pageTitle":"ESMS  - Customer Page",
+  "PageData":
+    [  
+      {  
+        "section_order":"4",
+        "section_alignemnt":"Middle",
+        "sectiontitle":" Customer Form  ",
+        "columntype": "2",
+        "sectiontype":"1",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "customername",
+          "name_of_label": "Customer Name",
+          "select_option":[],
+          "def_value": "Mohan",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "customerlastname",
+          "name_of_label": "LastName ",
+          "select_option":[],
+          "def_value": "Raj",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+
+          {
+            "field_id":"2",
+            "type_of_field": "radio",
+            "order_id":"3",
+            "data_type":"varchar",
+            "name_of_field": "gender",
+            "name_of_label": "Gender",
+            "def_value": "option 3",
+            "select_option":["Male","Female","Others"],
+            "required": "yes",
+            "min": "",
+            "max": ""
+            },
+  
+          {
+          "field_id":"2",
+          "type_of_field": "dropdown",
+          "order_id":"4",
+          "data_type":"varchar",
+          "name_of_field": "Customertype",
+          "name_of_label": "Customer type",
+          "def_value": "option 3",
+          "multiple":false,
+          "select_option":["Paid Customer","Direct Customer","Card Customer","Inner Customer"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"5",
+          "data_type":"submit",
+          "name_of_field": "custmerformSubmit",
+          "name_of_label": "Save ",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmitone"
+          }
+        ]
+      },
+      {  
+        "section_order":"2",
+        "section_alignemnt":"Middle",
+        "sectiontitle":" Customer Address Form ",
+        "sectiontype":"1",
+        "columntype": "2",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "sreetname",
+          "name_of_label": "Street",
+          "select_option":[],
+          "def_value": "",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "location",
+          "name_of_label": "Location",
+          "select_option":[],
+          "def_value": "",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+            "field_id":"2",
+            "type_of_field": "dropdown",
+            "order_id":"4",
+            "data_type":"varchar",
+            "name_of_field": "country",
+            "name_of_label": "Country ",
+            "def_value": "India",
+            "multiple":false,
+            "select_option":["India","Malasiya","Singapore","Thailand"],
+            "required": "yes",
+            "min": "",
+            "max": ""
+            },
+          
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"4",
+          "data_type":"submit",
+          "name_of_field": "custmerformtwoSubmit",
+          "name_of_label": "Save ",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmittwo"
+          }
+        ]
+      },
+      {  
+        "section_order":"3",
+        "section_alignemnt":"left",
+        "sectiontitle":" Education Form",
+        "sectiontype":"1",
+        "columntype": "2",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "Degeree",
+          "name_of_label": "Degree Name",
+          "select_option":[],
+          "def_value": "BE-CSE",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "University",
+          "name_of_label": "University",
+          "select_option":[],
+          "def_value": "Anna University",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+  
+          {
+          "field_id":"2",
+          "type_of_field": "dropdown",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "Customernewtype",
+          "name_of_label": "Country",
+          "def_value": "India",
+          "multiple":false,
+          "select_option":["India","Malasiya","Singapore","Tailand"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"4",
+          "data_type":"submit",
+          "name_of_field": "custmerformthreeSubmit",
+          "name_of_label": "Save ",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmitthree"
+          }
+        ]
+      }
+  
+    ]
+  }

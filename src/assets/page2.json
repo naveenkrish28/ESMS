@@ -1,0 +1,217 @@
+{
+  "pageTitle":"ESMS  - Agent Page",
+  "PageData":
+    [  
+      {  
+        "section_order":"3",
+        "section_alignemnt":"Middle",
+        "sectiontitle":" Agent Form",
+        "sectiontype":"3",
+        "columntype": "2",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "agentname",
+          "name_of_label": "Name",
+          "select_option":[],
+          "def_value": "Rohan",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+            "field_id":"2",
+            "type_of_field": "checkbox",
+            "order_id":"4",
+            "data_type":"varchar",
+            "name_of_field": "gender",
+            "name_of_label": "Agents",
+            "def_value": "Married",
+            "select_option":["Self Employee","Married","Others"],            
+            "required": "yes",
+            "min": "",
+            "max": ""
+            },
+          {
+          "field_id":"2",
+          "type_of_field": "textbox",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "agentlastname",
+          "name_of_label": "Last Name",
+          "select_option":[],
+          "def_value": "Murugan",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+  
+          {
+          "field_id":"3",
+          "type_of_field": "dropdown",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "agenttype",
+          "name_of_label": "Type",
+          "def_value": "Type 3",
+          "multiple":true,
+          "select_option":["Company","Self","Agents Agent","Part Time"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"4",
+          "type_of_field": "button",
+          "order_id":"4",
+          "data_type":"submit",
+          "name_of_field": "updateformname",
+          "name_of_label": "Save ",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmit"
+          }
+        ]
+      },
+      {  
+        "section_order":"1",
+        "section_alignemnt":"Middle",
+        "sectiontitle":" Agent Address Formn",
+        "sectiontype":"3",
+        "columntype": "3",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "street",
+          "name_of_label": "Street",
+          "select_option":[],
+          "def_value": "Madipakkam",
+          "required": "yes",
+          "min": "8",
+          "max": "12",
+          "styleClass": ".footersection",
+          "inlineStyle": ""
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "customerCountry",
+          "name_of_label": "Location",
+          "select_option":[],
+          "def_value": "Chennai",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+  
+          {
+          "field_id":"2",
+          "type_of_field": "dropdown",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "Customertype",
+          "name_of_label": "Contry",
+          "def_value": "option 3",
+          "multiple":false,
+          "select_option":["India","Tailand","North America","Malasiya"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"4",
+          "data_type":"submit",
+          "name_of_field": "agentformname",
+          "name_of_label": "Save 2",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmit"
+          }
+        ]
+      },
+      {  
+        "section_order":"2",
+        "section_alignemnt":"left",
+        "sectiontitle":" Agent Qualification ",
+        "sectiontype":"3",
+        "columntype": "2",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "agentdegree",
+          "name_of_label": "Degree",
+          "select_option":[],
+          "def_value": "BSE- CSE",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "University",
+          "name_of_label": "University",
+          "select_option":[],
+          "def_value": "Loyaloa University",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+  
+          {
+          "field_id":"2",
+          "type_of_field": "dropdown",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "Customernewtype",
+          "name_of_label": "Country",
+          "def_value": "India",
+          "multiple":true,
+          "select_option":["India","Singapore","Malasiya","USA"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"3",
+          "data_type":"submit",
+          "name_of_field": "agentforonemname",
+          "name_of_label": "Update",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmit"
+          }
+        ]
+      }
+  
+    ]
+  }

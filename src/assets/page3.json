@@ -1,0 +1,280 @@
+{
+
+  "pageTitle":"ESMS  - Vendor Page",
+  "PageData":
+    [  
+      {  
+        "section_order":"3",
+        "section_alignemnt":"Middle",
+        "sectiontitle":" Vendor Form",
+        "sectiontype":"4",
+        "columntype": "1",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "agentname",
+          "name_of_label": " Name",
+          "select_option":[],
+          "def_value": "ABT services",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+            "field_id":"2",
+            "type_of_field": "radio",
+            "order_id":"4",
+            "data_type":"varchar",
+            "name_of_field": "gender",
+            "name_of_label": "Gender",
+            "def_value": "Male",
+            "select_option":["Male","Female","Others"],
+            "required": "yes",
+            "min": "",
+            "max": ""
+            },
+          {
+          "field_id":"2",
+          "type_of_field": "textbox",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "agentlastname",
+          "name_of_label": "Last Name",
+          "select_option":[],
+          "def_value": "Abt",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },  
+          {
+          "field_id":"3",
+          "type_of_field": "dropdown",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "agenttype",
+          "name_of_label": "Vendor type",
+          "multiple":false,
+          "def_value": "Type 3",
+          "select_option":["Direct","Agent","Partner"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"4",
+          "type_of_field": "button",
+          "order_id":"4",
+          "data_type":"submit",
+          "name_of_field": "updateformname",
+          "name_of_label": "Save ",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmit"
+          }
+        ]
+      },
+      {  
+        "section_order":"1",
+        "section_alignemnt":"Middle",
+        "sectiontitle":" Vendor Address Form ",
+        "sectiontype":"4",
+        "columntype": "1",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "vendorstret",
+          "name_of_label": "Street",
+          "select_option":[],
+          "def_value": "James Street",
+          "required": "yes",
+          "min": "8",
+          "max": "12",
+          "styleClass": ".footersection",
+          "inlineStyle": ""
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "cvendorCountry",
+          "name_of_label": "Location",
+          "select_option":[],
+          "def_value": "Chennai",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },  
+          {
+          "field_id":"2",
+          "type_of_field": "dropdown",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "vendorcountry",
+          "name_of_label": "Country",
+          "def_value": "India",
+          "multiple":false,
+          "select_option":["India","Singapore","Malasiya","Tailand"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"4",
+          "data_type":"submit",
+          "name_of_field": "vendorformname",
+          "name_of_label": "Save",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmit"
+          }
+        ]
+      },
+      {  
+        "section_order":"2",
+        "section_alignemnt":"left",
+        "sectiontitle":" Vendor  Qualification   ",
+        "sectiontype":"4",
+        "columntype": "1",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "degreename",
+          "name_of_label": "Degree",
+          "select_option":[],
+          "def_value": "MBA",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "DgUniversity",
+          "name_of_label": "University",
+          "select_option":[],
+          "def_value": "Karunya ",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },  
+          {
+          "field_id":"2",
+          "type_of_field": "dropdown",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "dgreecountry",
+          "name_of_label": "Country",
+          "def_value": "India",
+          "multiple":false,
+          "select_option":["India","Singapore","Malasiya","Tailand"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"3",
+          "data_type":"submit",
+          "name_of_field": "agentforonemname",
+          "name_of_label": "Save ",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmit"
+          }
+        ]
+      },
+      {  
+        "section_order":"4",
+        "section_alignemnt":"left",
+        "sectiontitle":" Vendor Collection   ",
+        "sectiontype":"4",
+        "columntype": "1",
+        "Response":  
+        [
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"3",
+          "data_type":"varchar",
+          "name_of_field": "collectionname",
+          "name_of_label": "Name",
+          "select_option":[],
+          "def_value": "Mohan",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+          {
+          "field_id":"1",
+          "type_of_field": "textbox",
+          "order_id":"1",
+          "data_type":"varchar",
+          "name_of_field": "collectionarea",
+          "name_of_label": "Area",
+          "select_option":[],
+          "def_value": "Tirunelveli",
+          "required": "yes",
+          "min": "8",
+          "max": "12"
+          },
+  
+          {
+          "field_id":"2",
+          "type_of_field": "dropdown",
+          "order_id":"2",
+          "data_type":"varchar",
+          "name_of_field": "Customernewtype",
+          "name_of_label": "Payment",
+          "def_value": "option 3",
+          "multiple":false,
+          "select_option":["Cheque","DD","Case","Online Payment"],
+          "required": "yes",
+          "min": "",
+          "max": ""
+          },
+          {
+          "field_id":"3",
+          "type_of_field": "button",
+          "order_id":"3",
+          "data_type":"submit",
+          "name_of_field": "agentforonemname",
+          "name_of_label": "Save 4",
+          "def_value": "",
+          "select_option":[],
+          "required": "",
+          "min": "",
+          "max": "",
+          "action": "onSubmit"
+          }
+        ]
+      }
+  
+    ]
+}

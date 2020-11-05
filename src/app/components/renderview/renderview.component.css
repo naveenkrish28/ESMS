@@ -1,0 +1,257 @@
+.content
+{
+    margin:0;
+    border: 5px solid #6FB4FF; 
+    display:inline-block;
+}
+h1, h2,h3,h4,h5
+{
+    margin-top:10px;
+    color: #000;
+}
+input[type="text"],select
+{
+    padding-left: 2px;
+    width: 100px;
+}
+input[type="submit"]
+{
+    background-color: #008cE6;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 10px;
+}
+.btn
+{
+  float: left;
+  width: 100%;
+}
+.btn-primary
+{
+    float: left;    
+}
+.staticform
+{
+    padding: 2px 0px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #B7D8FF;
+    padding-bottom: 10px;
+}
+
+.formcontroldiv
+{
+    display: inline;
+    padding: 2px; 
+}
+.dynamiccontent label , .staticform label {    
+    width: 200px;
+    text-transform: capitalize;
+    display: inline-block;
+    font-weight: 900;
+}
+
+.radiolbl
+{
+    font-weight: 400;
+}
+.page-header
+{
+    float: left;
+    align-content: center;
+    background-color: #B7D8FF;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5px;
+    /* padding: 2px 0px; */
+    margin-left: 6px;
+}
+
+.row{
+    float: left;    
+    width: 98%;
+}
+.rowflex
+{   
+    float: left;   
+    width: 98%;
+}
+.column1
+{
+    float: left;
+    width: 98%;  
+}
+.column2
+{
+    float: left;
+    width: 48%;   
+    padding:2px;
+}
+.column3
+{
+    float: left;
+    width: 30%;    
+    padding:2px;
+}
+
+.column4
+{
+    float: left;
+    width: 24%;    
+    padding:2px;
+}
+
+form{
+    width: 99%;
+    padding-left: 2px;;
+}
+.formdiv
+{
+    margin-left: 5px;
+    display: inline;
+}
+.dynamiccontent
+{
+    width: 98%;
+    /*border: 2px solid #0099FF ;*/
+    padding: 2px;
+}
+
+/***************** section Div ********************/
+.sectionDiv1
+{
+    float: left;
+    border: 1px solid #ABD0BC;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+   
+}
+.sectionDiv2
+{
+    float: left;
+    border: 1px solid #ABD0BC;
+    padding: 5px;
+    width: 50%;
+    box-sizing: border-box;
+    height: 300px;
+    overflow-y: auto;
+    
+}
+.sectionDiv3
+{
+    float: left;
+    /*background-color: #FF93D3;*/
+    border: 1px solid #ABD0BC;
+    padding: 5px;
+    width: 33%;
+    box-sizing: border-box;
+    height: 300px;
+    overflow-y: auto;
+}
+.sectionDiv4
+{
+    float: left;
+    /*background-color: #FF93D3;*/
+    border: 1px solid #ABD0BC;
+    padding: 5px;
+    width: 25%;
+    box-sizing: border-box;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.section-header
+{
+    width: 100%;
+    background-color: #B7D8FF;
+    text-align: left;
+    border-radius: 3px;
+    padding: unset;
+}
+
+.col-one
+  {
+    float: left;
+    width: 98%;
+  }
+  .col-two
+  {
+    float: left;
+    width: 48%;   
+    padding:2px;
+  }  
+  .col-three
+  {
+    width: 30%;
+    float: left;
+  }  
+  .col-four
+  {
+    float: left;
+    width: 24%;    
+    padding:2px;
+  }
+
+input,textarea,select,option{
+    font-size: 10px;    
+}
+label
+{
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15px;
+    font-family: Tahoma,Verdana,Segoe,sans-serif; 
+}
+select
+{
+    width: 150px;
+}
+.radiolbl
+{
+    font-size: 9px;
+}
+
+input[type="radio"], input[type="checkbox"]{
+    width: 9px;
+    height: 9px;
+}
+
+
+.buttonDiv 
+{
+    margin-top: 10px;
+}
+
+.buttonDiv input[type="button"]
+{
+    background-color: #02329A;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 9px;
+    border-radius: 6px;
+    width: 108px;
+    margin: 2px;
+
+}
+.DateDiv
+{
+    border: 1px solid #ABD0BC;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.bottom{
+    position: sticky;
+    bottom: 0px;
+    width: 94%;
+}

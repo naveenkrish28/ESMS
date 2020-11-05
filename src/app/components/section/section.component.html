@@ -1,0 +1,362 @@
+<div class="container">
+    <div class="buttonDiv">
+      <span><input type="button" value="Preview" (click)="openPreviewDialog()" ></span> &nbsp; &nbsp;
+      <span><input type="button" value="Save" (click)="SavePage()"></span>
+    </div>
+  <div >
+    <h2>Controls</h2>
+  
+    <div
+      id="FcontrolDiv"
+      cdkDropList
+      #flist="cdkDropList"
+      [cdkDropListData]="formcontrollist"
+      [cdkDropListConnectedTo]="[sectionlist1,sectionlist2,sectionlist3,sectionlist4]"
+      [cdkDropListEnterPredicate]="noReturnPredicate"
+      class="example-list-control"
+      (cdkDropListDropped)="drop($event,2)">
+      <div class="example-box-control" *ngFor="let item of formcontrollist" cdkDrag><span class=""><img [src]="item.src" [title]="item.ftype"></span></div>
+    </div>
+  </div>
+  
+  <div class="example-container pagsetup"   
+  
+  >    
+    <!-- Pannel 1 -->
+    <div
+      cdkDropList
+      #sectionlist1="cdkDropList"
+      [cdkDropListData]="sectionlistone.sectioncontent"
+      [cdkDropListConnectedTo]="[flist,sectionlist2,sectionlist3,sectionlist4]"    
+      class="example-list sectiondiv"
+      (cdkDropListDropped)="drop($event,1)" (click)="showSectionEvent(1)" >
+      <h3>{{sectionlistone.sectiontitle}}</h3>
+        <div ngClass="example-box {{ sectionlistone.coltype}}" *ngFor="let item of sectionlistone.sectioncontent; let i = index "  cdkDrag>  
+          <div [ngSwitch]="item.ftype">
+
+            <div *ngSwitchCase="'textbox'">           
+                <label > {{item.flabel}} </label>              
+                  <input type="text"  [attr.maxLength]="item.maxlength" [attr.minLength]="item.minlenth" 
+                   value="{{item.defvalue}}" (click)="ShowAttribute(i,1)" />                       
+            </div>  
+            
+            <div *ngSwitchCase="'dropdown'"   >              
+            <label  > {{item.flabel}}  </label>              
+                <select [multiple]="item.stype" readonly (click)="ShowAttribute(i,1)">                  
+                <option>  Selected </option>
+                </select>              
+            </div>
+    
+            <div *ngSwitchCase="'radio'"  >
+            <label for="staticEmail" >{{item.flabel}}</label>              
+                <span >
+                <input type="radio" (click)="ShowAttribute(i,1)" readonly >
+                    <span class="radiolbl"> </span>
+                </span>            
+            </div>
+    
+            <div *ngSwitchCase="'checkbox'"  >
+              <label for="staticEmail" >{{item.flabel}}</label>              
+                  <span >
+                  <input type="checkbox" (click)="ShowAttribute(i,1)"  >
+                      <span class="radiolbl"> </span>
+                  </span>            
+              </div>
+    
+            <div *ngSwitchCase="'textarea'">              
+                <label >{{item.flabel}} </label>              
+                <textarea readonly (click)="ShowAttribute(i,1)"></textarea>            
+            </div> 
+    
+            <div *ngSwitchCase="'button'">              
+                <label > </label>              
+                  <input readonly type="{{item.flabel}}" value="{{item.flabel}}"  (click)="ShowAttribute(i,1)"/>         
+            </div> 
+
+            <div *ngSwitchCase="'date'">           
+              <label > {{item.flabel}} </label>              
+                <input type="date"  (click)="ShowAttribute(i,1)" />                       
+            </div>  
+          </div>
+        </div>      
+    </div>
+    <!-- Pannel 2 -->
+    <div
+      cdkDropList
+      #sectionlist2="cdkDropList"
+      [cdkDropListData]="sectionlisttwo.sectioncontent"
+      [cdkDropListConnectedTo]="[flist,sectionlist1,sectionlist3,sectionlist4]"    
+      class="example-list sectiondiv"
+      (cdkDropListDropped)="drop($event,1)" cdkDrag (click)="showSectionEvent(2)" >
+      <h3>{{sectionlisttwo.sectiontitle}}</h3>
+        <div ngClass="example-box {{ sectionlisttwo.coltype}}" *ngFor="let item of sectionlisttwo.sectioncontent; let i = index "  cdkDrag>  
+          <div [ngSwitch]="item.ftype">
+
+            <div *ngSwitchCase="'textbox'">           
+                <label > {{item.flabel}} </label>              
+                  <input type="text"  [attr.maxLength]="item.maxlength" [attr.minLength]="item.minlenth"  value="{{item.defvalue}}" (click)="ShowAttribute(i,2)" />                       
+            </div>  
+            
+            <div *ngSwitchCase="'dropdown'"   >              
+            <label  > {{item.flabel}}  </label>              
+                <select [multiple]="item.stype"  readonly  (click)="ShowAttribute(i,2)">                  
+                <option  >  Selected </option>
+                </select>              
+            </div>
+    
+            <div *ngSwitchCase="'radio'"  >
+            <label for="staticEmail" >{{item.flabel}}</label>              
+                <span >
+                <input type="radio" (click)="ShowAttribute(i,2)" readonly >
+                    <span class="radiolbl"> </span>
+                </span>            
+            </div>
+    
+            <div *ngSwitchCase="'checkbox'"  >
+              <label for="staticEmail" >{{item.flabel}}</label>              
+                  <span >
+                  <input type="checkbox" (click)="ShowAttribute(i,2)"  >
+                      <span class="radiolbl"> </span>
+                  </span>            
+              </div>
+    
+            <div *ngSwitchCase="'textarea'">              
+                <label >{{item.flabel}} </label>              
+                <textarea readonly (click)="ShowAttribute(i,2)"></textarea>            
+            </div> 
+    
+            <div *ngSwitchCase="'button'">              
+                <label > </label>              
+                  <input readonly type="{{item.flabel}}" value="{{item.flabel}}"  (click)="ShowAttribute(i,2)"/>         
+            </div> 
+
+            <div *ngSwitchCase="'date'">           
+              <label > {{item.flabel}} </label>              
+                <input type="date"  (click)="ShowAttribute(i,2)" />                       
+          </div>  
+          </div>
+        </div>  
+    </div>
+    <!-- Pannel 3 -->
+    <div
+      cdkDropList
+      #sectionlist3="cdkDropList"
+      [cdkDropListData]="sectionlistthree.sectioncontent"
+      [cdkDropListConnectedTo]="[flist,sectionlist1,sectionlist2,sectionlist4]"    
+      class="example-list sectiondiv"
+      (cdkDropListDropped)="drop($event,1)" cdkDrag (click)="showSectionEvent(3)" >
+      <h3>{{sectionlistthree.sectiontitle}}</h3>
+        <div ngClass="example-box {{ sectionlistthree.coltype}}" *ngFor="let item of sectionlistthree.sectioncontent; let i = index "  (click)="$event.stopPropagation();" cdkDrag>  
+          <div [ngSwitch]="item.ftype">
+
+            <div *ngSwitchCase="'textbox'">           
+                <label > {{item.flabel}} </label>              
+                  <input type="text"  [attr.maxLength]="item.maxlength" [attr.minLength]="item.minlenth"  value="{{item.defvalue}}" (click)="ShowAttribute(i,3);" />                       
+            </div>  
+            
+            <div *ngSwitchCase="'dropdown'"   >              
+            <label  > {{item.flabel}}  </label>              
+                <select [multiple]="item.stype"  readonly  (click)="ShowAttribute(i,3)">                  
+                <option  >  Selected </option>
+                </select>              
+            </div>
+    
+            <div *ngSwitchCase="'radio'"  >
+            <label for="staticEmail" >{{item.flabel}}</label>              
+                <span >
+                <input type="radio" (click)="ShowAttribute(i,3)" readonly >
+                    <span class="radiolbl"> </span>
+                </span>            
+            </div>
+    
+            <div *ngSwitchCase="'checkbox'"  >
+              <label for="staticEmail" >{{item.flabel}}</label>              
+                  <span >
+                  <input type="checkbox" (click)="ShowAttribute(i,3)"  >
+                      <span class="radiolbl"> </span>
+                  </span>            
+              </div>
+    
+            <div *ngSwitchCase="'textarea'">              
+                <label >{{item.flabel}} </label>              
+                <textarea readonly (click)="ShowAttribute(i,3)"></textarea>            
+            </div> 
+    
+            <div *ngSwitchCase="'button'">              
+                <label > </label>              
+                  <input readonly type="{{item.flabel}}" value="{{item.flabel}}"  (click)="ShowAttribute(i,3)"/>         
+            </div> 
+
+            <div *ngSwitchCase="'date'">           
+              <label > {{item.flabel}} </label>              
+                <input type="date"  (click)="ShowAttribute(i,3)" />                       
+          </div>  
+          </div>
+        </div>       
+    </div>
+    <!-- Pannel 4 -->
+    <div
+      cdkDropList
+      #sectionlist4="cdkDropList"
+      [cdkDropListData]="sectionlistfour.sectioncontent"
+      [cdkDropListConnectedTo]="[flist,sectionlist1,sectionlist2,sectionlist3]"    
+      class="example-list sectiondiv"
+      (cdkDropListDropped)="drop($event,1)" cdkDrag (click)="showSectionEvent(4)">
+      <h3>{{sectionlistfour.sectiontitle}}</h3>
+      <div ngClass="example-box {{ sectionlistfour.coltype}}" *ngFor="let item of sectionlistfour.sectioncontent; let i = index "  cdkDrag>  
+        <div [ngSwitch]="item.ftype">
+
+          <div *ngSwitchCase="'textbox'">           
+              <label > {{item.flabel}} </label>              
+              <input type="text"  [attr.maxLength]="item.maxlength" [attr.minLength]="item.minlenth"  value="{{item.defvalue}}" (click)="ShowAttribute(i,4)" />                       
+          </div>          
+          <div *ngSwitchCase="'dropdown'"   >              
+          <label  > {{item.flabel}}  </label>              
+              <select [multiple]="item.stype"  readonly  (click)="ShowAttribute(i,4)">                  
+                <option>  Selected </option>
+              </select>              
+          </div>  
+          <div *ngSwitchCase="'radio'"  >
+          <label for="staticEmail" >{{item.flabel}}</label>              
+              <span >
+              <input type="radio" (click)="ShowAttribute(i,4)" readonly >
+                  <span class="radiolbl"> </span>
+              </span>            
+          </div>  
+          <div *ngSwitchCase="'checkbox'"  >
+            <label for="staticEmail" >{{item.flabel}}</label>              
+                <span >
+                <input type="checkbox" (click)="ShowAttribute(i,4)"  >
+                    <span class="radiolbl"> </span>
+                </span>            
+            </div>  
+          <div *ngSwitchCase="'textarea'">              
+              <label >{{item.flabel}} </label>              
+              <textarea readonly (click)="ShowAttribute(i,4)"></textarea>            
+          </div>   
+          <div *ngSwitchCase="'button'">              
+              <label > </label>              
+              <input readonly type="{{item.flabel}}" value="{{item.flabel}}"  (click)="ShowAttribute(i,4)"/>         
+          </div> 
+
+          <div *ngSwitchCase="'date'">           
+            <label > {{item.flabel}} </label>              
+              <input type="date"  (click)="ShowAttribute(i,4)" />                       
+        </div>  
+        </div>
+      </div>   
+    </div>    
+  </div>
+
+
+  <!--- Section Attributes form -->
+  <div class="example-container fieldattrDiv sectiondd" *ngIf="isEnableSecAttrributeDiv">
+    <form [formGroup]="sectionattributeform">
+      <h2>Section Attributes</h2>
+      <div class="example-list scroll">
+  
+        <div class="example-box" >
+            <label>Order</label>
+            <input  type="text" (change)="onChangeSectionEvent()"  formControlName="sectionorder" readonly  />      
+        </div>
+  
+        <div class="example-box" >
+            <label>Section Title</label>
+            <input type="text" (change)="onChangeSectionEvent()"    formControlName="sectiontitle"  />      
+        </div>
+  
+        <div class="example-box" >
+          <label>Column Type</label>
+            <select  formControlName="columntype"   (change)="onChangeSectionEvent()">                  
+              <option  *ngFor="let item of columntype ; let i = index " [value]="item.id" >  {{item.name}} </option>
+            </select>
+        </div>
+        <input  type="hidden" value=""  formControlName="sectionindex"  />   
+    </div>
+  </form>
+  </div> 
+
+  <!--- Field Attributes -->
+  <div class="example-container fieldattrDiv" *ngIf="isEnableAttrributeDiv">
+    <form [formGroup]="fieldAttributeform">
+      <h2>Field Attributes</h2>
+      <div class="example-list scroll">
+  
+          <div class="example-box" >
+              <label>Field ID</label>
+              <input  type="text" (change)="onChangeEvent()"   formControlName="fid"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Order ID</label>
+            <input  type="text"  value="" (change)="onChangeEvent()" readonly formControlName="orderid"  />      
+        </div>
+  
+          <div class="example-box" >
+              <label>Field Type</label>
+              <input type="text" (change)="onChangeEvent()"  readonly  formControlName="ftype"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Data Type</label>
+            <input  type="text" (change)="onChangeEvent()"  formControlName="dtype"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Label</label>
+            <input  type="text" (change)="onChangeEvent()"  formControlName="flabel"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Field Name</label>
+            <input  type="text" (change)="onChangeEvent()"  formControlName="fname"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Default Value</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="defvalue"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Validation</label>
+            <span><input  type="radio" (change)="onChangeEvent()" value=true formControlName="vrequired"  />  Yes
+            <input  type="radio"  (change)="onChangeEvent()"  value=false formControlName="vrequired" checked  /> No</span>
+          </div>
+  
+          <div class="example-box" >
+            <label>Multiple</label>
+            <span> <input  type="radio"  (change)="onChangeEvent()"  value=true formControlName="stype"  /> True
+            <input  type="radio" (change)="onChangeEvent()" value=false formControlName="stype" checked  /> False</span>
+          </div>
+  
+          <div class="example-box" >
+            <label>Maximum Length</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="maxlength"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Minimum Length</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="minlenth"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Options</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="dropdownoptions"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Action</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="action"  />      
+          </div>
+  
+            <input  type="hidden"  formControlName="currnetindex"  />     
+            <input  type="hidden"  formControlName="currentsection"  />  
+         
+  
+    </div>
+  </form>
+  </div>  
+
+
+  
+  

@@ -1,0 +1,62 @@
+<div class="formdiv dynamiccontent row" >
+    <header>
+      <h4>{{pagename}}</h4>
+    </header>
+    
+  <form [formGroup]="dynamicForm" >
+  
+    <div  ngClass=" row sectionDiv{{ sect_elem.sectiontype}}" *ngFor="let sect_elem of pagedata | orderBy :'section_order';"> 
+  
+      <div class="section-header"> <h4>{{sect_elem.sectiontitle}}</h4></div>
+  
+      <div   *ngFor="let form_elem of sect_elem.Response  ">
+         
+        <div [ngSwitch]="form_elem.ftype">
+  
+            <div  ngClass="column{{sect_elem.columntype}} formcontroldiv"  *ngSwitchCase="'textbox'">           
+                <label >{{form_elem.flabel}} : </label>              
+                  <input type="text" formControlName="{{form_elem.fname}}"/>                       
+            </div>  
+            
+              <div  ngClass="column{{sect_elem.columntype}} formcontroldiv"  *ngSwitchCase="'dropdown'"  >              
+                <label for="staticEmail" >{{form_elem.flabel}} : </label>              
+                  <select  [multiple]="form_elem.stype"  formControlName="{{form_elem.fname}}" >                  
+                    <option  *ngFor="let opt of form_elem.dropdownoptions" [value]="opt">  {{opt}}</option>
+                  </select>              
+              </div>
+  
+              <div ngClass="column{{sect_elem.columntype}} formcontroldiv"  *ngSwitchCase="'radio'">
+                <label for="staticEmail" >{{form_elem.flabel}} : </label>              
+                  <span *ngFor="let radioopt of form_elem.dropdownoptions" >
+                    <input type="radio" class="orm-check-input" [value]="radioopt" formControlName="{{form_elem.fname}}">
+                      <span class="radiolbl">{{radioopt}}</span>
+                  </span>                
+              </div>
+  
+              <div  ngClass="column{{sect_elem.columntype}} formcontroldiv"  *ngSwitchCase="'checkbox'">              
+                <label for="staticEmail" class="col-sm col-form-label">{{form_elem.flabel}} : </label>
+                  <span *ngFor="let radioopt of form_elem.dropdownoptions" >
+                    <input type="checkbox"  [value]="radioopt" formControlName="{{form_elem.fname}}">
+                      <span class="radiolbl">{{radioopt}}</span>
+                  </span>              
+              </div>
+
+              <div  ngClass="column{{sect_elem.columntype}} formcontroldiv"  *ngSwitchCase="'textarea'">           
+                <label >{{form_elem.flabel}} : </label>              
+                  <textarea  formControlName="{{form_elem.fname}}">    </textarea>                   
+            </div>  
+  
+              <div class="btn formcontroldiv " *ngSwitchCase="'button'  "> 
+                <div></div>
+                <input type="submit" (click)="this[form_elem.action]()"  class="btn-primary" id="{{form_elem.fname}}"  value="{{form_elem.flabel}}"/>              
+              </div>
+
+          </div>  
+      </div>
+     
+    </div>
+    
+  </form>
+  </div>
+  
+<input type="button" value="Close" (click)="closeDilaog()">

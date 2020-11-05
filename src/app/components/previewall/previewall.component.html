@@ -1,0 +1,90 @@
+<div class="row " *ngIf="isEnable">
+  <header class="page-header">
+    <h3>{{pageTitle}}</h3>
+  </header>
+</div>
+
+<div class="formdiv dynamiccontent row" *ngIf="isEnable">
+  <header>
+    <h4>{{pagename}}</h4>
+  </header>
+
+  <form [formGroup]="dynamicForm">
+
+    <div ngClass=" row sectionDiv{{ sect_elem.sectiontype}}" *ngFor="let sect_elem of pagedata | orderBy :'order';">
+
+      <div class="section-header">
+        <h4>{{sect_elem.sectiontitle}}</h4>
+      </div>
+
+      <div *ngFor="let form_elem of sect_elem.sectioncontent | orderBy:'orderid' ">
+
+        <div [ngSwitch]="form_elem.ftype">
+
+          <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'textbox'">
+            <label>{{form_elem.flabel}} : </label>
+            <input type="text" formControlName="{{form_elem.fname}}" />
+          </div>
+
+          <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'textarea'">
+            <label>{{form_elem.flabel}} : </label>
+            <textarea formControlName="{{form_elem.fname}}">   </textarea>
+          </div>
+
+          <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'dropdown'">
+            <label for="staticEmail">{{form_elem.flabel}} : </label>
+            <select [multiple]="form_elem.stype" formControlName="{{form_elem.fname}}">
+              <option *ngFor="let opt of form_elem.dropdownoptions" [value]="opt"> {{opt}}</option>
+            </select>
+          </div>
+
+          <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'radio'">
+            <label for="staticEmail">{{form_elem.flabel}} : </label>
+            <span *ngFor="let radioopt of form_elem.dropdownoptions">
+              <input type="radio" class="orm-check-input" [value]="radioopt" formControlName="{{form_elem.fname}}">
+              <span class="radiolbl">{{radioopt}}</span>
+            </span>
+
+          </div>
+
+          <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'checkbox'">
+            <label for="staticEmail" class="col-sm col-form-label">{{form_elem.flabel}} : </label>
+            <span *ngFor="let radioopt of form_elem.dropdownoptions">
+              <input type="checkbox" [value]="radioopt" formControlName="{{form_elem.fname}}">
+              <span class="radiolbl">{{radioopt}}</span>
+            </span>
+          </div>
+
+          <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'button'  ">
+            <div></div>
+            <input type="submit" (click)="this[form_elem.action]()" class="btn-primary" id="{{form_elem.fname}}"
+              value="{{form_elem.flabel}}" />
+
+          </div>
+
+          <div ngClass="{{sect_elem.coltype}} formcontroldiv" *ngSwitchCase="'date'">
+            <label>{{form_elem.flabel}} : </label>
+            <input type="date"  formControlName="{{form_elem.fname}}" >
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bottom">
+      <div style="padding-left: 5px;">
+        <span style="font-family: Tahoma,Verdana,Segoe,sans-serif; font-size: 12px;line-height: 15px;">Scripts for Permanent Credit Line. Test<br>
+          User to capture the Reason before capturing other information in this page</span>
+      </div>
+      <div class="buttonDiv" style="padding-left: 5px;border: solid 1px #ABD0BC;width: 100%;">
+        <label >Due Date</label><input type="date">
+      </div>
+      
+      <div  class=" row sectionDiv buttonDiv" >
+          <input type="button" class="btn-primary"   value="Comments"/>
+          <input type="button" class="btn-primary"   value="Save"/>
+          <input type="button" class="btn-primary"   value="Attach"/>
+          <input type="button" class="btn-primary"   value="Link"/>
+      </div>
+    </div>
+  </form>
+</div>

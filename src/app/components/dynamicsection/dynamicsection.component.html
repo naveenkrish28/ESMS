@@ -1,0 +1,212 @@
+<div class=topdiv><nav>
+    <ul>     
+      <li><a routerLink="/root" routerLinkActive="active">Back</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="container">
+    <div class="buttonDiv">
+      <span><input type="button" value="Preview" (click)="openPreviewDialog()" ></span> &nbsp; &nbsp;
+      <span><input type="button" value="Save" (click)="SavePage()"></span>
+    </div>
+  <div >
+    <h2>Controls</h2>  
+    <div
+      id="FcontrolDiv"
+      cdkDropList
+      #flist="cdkDropList"
+      [cdkDropListData]="formcontrollist"
+      [cdkDropListConnectedTo]="sectionidlist"
+      [cdkDropListEnterPredicate]="noReturnPredicate"
+      class="example-list-control"
+      (cdkDropListDropped)="drop($event,2)">
+      <div class="example-box-control" *ngFor="let item of formcontrollist" cdkDrag><span class=""><img [src]="item.src" [title]="item.ftype"></span></div>
+    </div>
+  </div>
+  
+    <div class="addSectionDiv">
+      <span class="addbutton" (click)="Addsection()">+ 
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      </span>
+   </div>
+    <!-- Pannel 1 -->
+    <div class="example-container pagsetup" >
+      
+      <div 
+          cdkDropList
+          [id]="createSectiondroplistid(i)"
+          [cdkDropListData]="parentitem.sectioncontent"
+          [cdkDropListConnectedTo]="createSectionConnecteto(i)"    
+          class="example-list sectiondiv"
+          (cdkDropListDropped)="drop($event)" 
+          (click)="showSectionEvent(i)"
+          ngClass="example-list sectiondiv" 
+          *ngFor="let parentitem of sectionlistidex; let i = index "
+          >  
+          <div ngClass="example-box {{ parentitem.coltype }}" *ngFor="let item of parentitem.sectioncontent ; let j = index" cdkDrag>
+
+              <div [ngSwitch]="item.ftype">
+
+                  <div *ngSwitchCase="'textbox'">           
+                      <label > {{item.flabel}} </label>              
+                        <input type="text"  [attr.maxLength]="item.maxlength" [attr.minLength]="item.minlenth" 
+                          value="{{item.defvalue}}" (click)="ShowAttribute(j,i)" />                       
+                  </div>  
+                  
+                  <div *ngSwitchCase="'dropdown'"   >              
+                  <label  > {{item.flabel}}  </label>              
+                      <select [multiple]="item.stype" readonly (click)="ShowAttribute(j,i)">                  
+                      <option>  Selected </option>
+                      </select>              
+                  </div>
+          
+                  <div *ngSwitchCase="'radio'"  >
+                  <label for="staticEmail" >{{item.flabel}}</label>              
+                      <span >
+                      <input type="radio" (click)="ShowAttribute(j,i)" readonly >
+                          <span class="radiolbl"> </span>
+                      </span>            
+                  </div>
+          
+                  <div *ngSwitchCase="'checkbox'"  >
+                    <label for="staticEmail" >{{item.flabel}}</label>              
+                        <span >
+                        <input type="checkbox" (click)="ShowAttribute(j,i)"  >
+                            <span class="radiolbl"> </span>
+                        </span>            
+                    </div>
+          
+                  <div *ngSwitchCase="'textarea'">              
+                      <label >{{item.flabel}} </label>              
+                      <textarea readonly (click)="ShowAttribute(j,i)" ></textarea>            
+                  </div> 
+          
+                  <div *ngSwitchCase="'button'">              
+                      <label > </label>              
+                        <input readonly type="{{item.flabel}}" value="{{item.flabel}}" 
+                         (click)="ShowAttribute(j,i)"/>         
+                  </div> 
+      
+                  <div *ngSwitchCase="'date'">           
+                    <label > {{item.flabel}} </label>              
+                      <input type="date"  (click)="ShowAttribute(j,i)" />                       
+                  </div>  
+
+                </div>             
+          </div>    
+          <div class="secdelbtndiv"><span  class="addbutton" (click)="deletesection(i)">X</span></div>        
+      </div>      
+    </div>
+
+
+  <!--- Section Attributes form -->
+  <div class="example-container fieldattrDiv sectiondd" *ngIf="isEnableSecAttrributeDiv">
+    <form [formGroup]="sectionattributeform">
+      <h2>Section Attributes</h2>
+      <div class="example-list scroll">
+  
+        <div class="example-box" >
+            <label>Order</label>
+            <input  type="text" (change)="onChangeSectionEvent()"  formControlName="sectionorder" readonly  />      
+        </div>
+  
+        <div class="example-box" >
+            <label>Section Title</label>
+            <input type="text" (change)="onChangeSectionEvent()"    formControlName="sectiontitle"  />      
+        </div>
+  
+        <div class="example-box" >
+          <label>Column Type</label>
+            <select  formControlName="columntype"   (change)="onChangeSectionEvent()">                  
+              <option  *ngFor="let item of columntype ; let i = index " [value]="item.id" >  {{item.name}} </option>
+            </select>
+        </div>
+        <input  type="hidden" value=""  formControlName="sectionindex"  />   
+    </div>
+  </form>
+  </div> 
+
+  <!--- Field Attributes -->
+  <div class="example-container fieldattrDiv" *ngIf="isEnableAttrributeDiv">
+    <form [formGroup]="fieldAttributeform">
+      <h2>Field Attributes</h2>
+      <div class="example-list scroll">
+  
+          <div class="example-box" >
+              <label>Field ID</label>
+              <input  type="text" (change)="onChangeEvent()"   formControlName="fid"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Order ID</label>
+            <input  type="text"  value="" (change)="onChangeEvent()" readonly formControlName="orderid"  />      
+        </div>
+  
+          <div class="example-box" >
+              <label>Field Type</label>
+              <input type="text" (change)="onChangeEvent()"  readonly  formControlName="ftype"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Data Type</label>
+            <input  type="text" (change)="onChangeEvent()"  formControlName="dtype"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Label</label>
+            <input  type="text" (change)="onChangeEvent()"  formControlName="flabel"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Field Name</label>
+            <input  type="text" (change)="onChangeEvent()"  formControlName="fname"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Default Value</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="defvalue"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Validation</label>
+            <span><input  type="radio" (change)="onChangeEvent()" value=true formControlName="vrequired"  />  Yes
+            <input  type="radio"  (change)="onChangeEvent()"  value=false formControlName="vrequired" checked  /> No</span>
+          </div>
+  
+          <div class="example-box" >
+            <label>Multiple</label>
+            <span> <input  type="radio"  (change)="onChangeEvent()"  value=true formControlName="stype"  /> True
+            <input  type="radio" (change)="onChangeEvent()" value=false formControlName="stype" checked  /> False</span>
+          </div>
+  
+          <div class="example-box" >
+            <label>Maximum Length</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="maxlength"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Minimum Length</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="minlenth"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Options</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="dropdownoptions"  />      
+          </div>
+  
+          <div class="example-box" >
+            <label>Action</label>
+            <input  type="text" (change)="onChangeEvent()"   formControlName="action"  />      
+          </div>
+  
+            <input  type="hidden"  formControlName="currnetindex"  />     
+            <input  type="hidden"  formControlName="currentsection"  />  
+         
+  
+    </div>
+  </form>
+  </div>  
+
+
+  
+  

@@ -1,0 +1,6 @@
+<h3>Edit Stage/ Page name</h3>
+<form>
+    <input type="text" [(ngModel)]="name" (ngSubmit)="setFieldName()" name="name">
+    <div style="padding-top:3px;margin:auto;width:fit-content"><input type="submit" [mat-dialog-close]="true"
+            style="background-color: #02329A;color:white;" (click)="setFieldName()" value="OK" ></div>
+</form>

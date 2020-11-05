@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+input[type="text"],select
+{
+    padding-left: 2px;
+    width: 100px;
+}
+input[type="button"],input[type="submit"]
+{
+    background-color: #008cE6;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 10px;
+}
+.addbutton
+{
+    font-weight: bold;
+    cursor: pointer;
+}
